@@ -49,6 +49,7 @@ public class Bot
 		for(;;){
 			String nom = in.readLine(); 
 			System.out.println(ask(nom));
+			System.out.println("LOL!");
 		}
 		
 		
