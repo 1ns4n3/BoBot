@@ -3,7 +3,10 @@ package IUT.BoBot;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
+import IUT.BoBot.SmartCell;
 import IUT.BoBot.SmartCells.*;
 
 
@@ -14,6 +17,7 @@ public class Bot
 	 * find an answer.
 	 */
 	final static SmartCell[] smartCells = new SmartCell[] {
+		new TomorrowCell(),
 		new AurevoirCell(),
 		new BonjourCell(),
 		new BonjourWithNameCell(),
@@ -46,6 +50,7 @@ public class Bot
 			String nom = in.readLine(); 
 			System.out.println(ask(nom));
 		}
+		
 		
 		
 	}

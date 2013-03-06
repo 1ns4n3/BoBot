@@ -2,6 +2,7 @@ package IUT.BoBot;
 
 import static org.junit.Assert.*;
 
+
 import org.junit.Test;
 
 /**
@@ -31,6 +32,18 @@ public class BotTest
     public void testJeMAppelle()
     {
         assertEquals("Bonjour Seb!", bot.ask("Je m'appelle Seb"));
+    }
+    
+    @Test
+    public void testToday()
+    {
+        assertEquals("Mercredi 6 Mars 2013", bot.ask("Quel jour aujourd'hui"));
+    }
+    
+    @Test
+    public void testTomorrow()
+    {
+        assertEquals("Jeudi 7 Mars 2013", bot.ask("Quel jour demain"));
     }
     
     @Test
