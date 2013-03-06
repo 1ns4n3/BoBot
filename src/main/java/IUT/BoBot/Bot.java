@@ -1,5 +1,9 @@
 package IUT.BoBot;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import IUT.BoBot.SmartCells.*;
 
 
@@ -9,7 +13,8 @@ public class Bot
 	 * List of SmartCells the questions go through to
 	 * find an answer.
 	 */
-	final SmartCell[] smartCells = new SmartCell[] {
+	final static SmartCell[] smartCells = new SmartCell[] {
+		new AurevoirCell(),
 		new BonjourCell(),
 		new BonjourWithNameCell(),
 		new TodayCell()
@@ -21,7 +26,7 @@ public class Bot
 	 * @param question The question you ask.
 	 * @return An answer... or null if it doesn't get it.
 	 */
-	public String ask(String question) {
+	public static String ask(String question) {
 		for(SmartCell cell:smartCells) {
 			String answer = cell.ask(question);
 			if(answer != null)
@@ -30,4 +35,18 @@ public class Bot
 		return null;
 	}
 	
+	public static void main(String[] args) throws IOException {
+		// Qui suis-je ?
+		System.out.println("Robot BoBot !");
+		
+		// Flux de lecture
+		InputStreamReader isr = new InputStreamReader(System.in); 
+		BufferedReader in = new BufferedReader(isr);
+		for(;;){
+			String nom = in.readLine(); 
+			System.out.println(ask(nom));
+		}
+		
+		
+	}
 }
